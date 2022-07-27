@@ -1,7 +1,7 @@
 # Ameba Neo Matrix
 
 ## Overview
-Please view detailed project logs from [here](https://hackaday.io/project/186335-ameba-neo-matrix)
+Please view detailed project logs from my [Hackaday.io](https://hackaday.io/project/186335-ameba-neo-matrix)
 
 ## To do List
 
