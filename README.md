@@ -5,6 +5,8 @@ Please view detailed project logs from [here](https://hackaday.io/project/186335
 
 ## To do List
 
+- [x] Map from LED strip (linear) to 2D-axis in LED Matrix hardware
+- [x] Convert data array (LED pattern) to axises in LED Matrix hardware
 - [ ] Convert input string to ASCII output
 - [ ] Getting information from API / Sensors
 
