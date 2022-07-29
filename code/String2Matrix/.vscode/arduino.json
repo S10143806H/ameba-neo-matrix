@@ -1,0 +1,6 @@
+{
+    "configuration": "EraseFlash=Disable",
+    "board": "realtek:AmebaD:ameba_rtl8721d",
+    "port": "COM12",
+    "sketch": "String2Matrix.ino"
+}

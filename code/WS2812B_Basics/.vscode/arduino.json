@@ -1,0 +1,6 @@
+{
+    "configuration": "EraseFlash=Disable,AutoUploadMode=Disable",
+    "board": "realtek:AmebaD:ameba_rtl8720dn_bw16",
+    "port": "COM12",
+    "sketch": "WS2812B_Basics.ino"
+}
