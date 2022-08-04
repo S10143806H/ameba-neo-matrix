@@ -7,7 +7,7 @@
 #include <string.h>
 
 #define ascii_index 95
-#define buffer_size str1_len*8
+#define buffer_size inputLen*8
 
 #if defined(BOARD_RTL8722DM)
 #define SPI_MOSI_PIN        11
@@ -43,16 +43,35 @@ uint8_t new_ascii[855] = {
   0x2d, 0x00, 0x00, 0x00, 0xfc, 0x00, 0x00, 0x00, 0x00,   //-
   0x2e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x30, 0x00,   //.
   0x2f, 0x06, 0x0c, 0x18, 0x30, 0x60, 0xc0, 0x80, 0x00,   //>/
-  0x30, 0x7c, 0xc6, 0xce, 0xde, 0xf6, 0xe6, 0x7c, 0x00,   //0
-  0x31, 0x00, 0x3f, 0x0c, 0x0c, 0x0c, 0x0c, 0x0e, 0x0c,   //1
-  0x32, 0x78, 0xcc, 0x0c, 0x38, 0x60, 0xcc, 0xfc, 0x00,   //2
-  0x33, 0x78, 0xcc, 0x0c, 0x38, 0x0c, 0xcc, 0x78, 0x00,   //3
-  0x34, 0x1c, 0x3c, 0x6c, 0xcc, 0xfe, 0x0c, 0x1e, 0x00,   //4
-  0x35, 0xfc, 0xc0, 0xf8, 0x0c, 0x0c, 0xcc, 0x78, 0x00,   //5
-  0x36, 0x38, 0x60, 0xc0, 0xf8, 0xcc, 0xcc, 0x78, 0x00,   //6
-  0x37, 0xfc, 0xcc, 0x0c, 0x18, 0x30, 0x30, 0x30, 0x00,   //7
-  0x38, 0x78, 0xcc, 0xcc, 0x78, 0xcc, 0xcc, 0x78, 0x00,   //8
-  0x39, 0x78, 0xcc, 0xcc, 0x7c, 0x0c, 0x18, 0x70, 0x00,   //9
+  // 0x30, 0x7c, 0xc6, 0xce, 0xde, 0xf6, 0xe6, 0x7c, 0x00,   //0
+  // 0x003e676f7b73633e
+  0x40, 0x13, 0x33, 0x33, 0x3e, 0x30, 0x18, 0x0e, 0x00,   //0
+  // 0x003f0c0c0c0c0e0c
+  0x31, 0x0c, 0x0e, 0x0c, 0x0c, 0x0c, 0x0c, 0x3f, 0x00,   //1
+  // 0x003f33061c30331e,
+  0x32, 0x1e, 0x33, 0x30, 0x1c, 0x06, 0x33, 0x3f, 0x00,   //2
+  // 0x001e33301c30331e,
+  0x33, 0x1e, 0x33, 0x30, 0x1c, 0x30, 0x33, 0x1e, 0x00,   //3
+  // 0x0078307f33363c38,
+  0x34, 0x38, 0x3c, 0x36, 0x33, 0x7f, 0x30, 0x78, 0x00,   //4
+  // 0x001e3330301f033f,
+  0x35, 0x3f, 0x03, 0x1f, 0x30, 0x30, 0x33, 0x1e, 0x00,   //5
+  // 0x001e33331f03061c,
+  0x36, 0x1c, 0x06, 0x03, 0x1f, 0x33, 0x33, 0x1e, 0x00,   //6
+  // 0x000c0c0c1830333f,
+  0x37, 0x3f, 0x33, 0x30, 0x18, 0x0c, 0x0c, 0x0c, 0x00,   //7
+  // 0x001e33331e33331e,
+  0x38, 0x1e, 0x33, 0x33, 0x1e, 0x33, 0x33, 0x13, 0x00,   //8
+  // 0x000e18303e33331e,
+  0x39, 0x1e, 0x33, 0x33, 0x3e, 0x30, 0x18, 0x0e, 0x00,   //9
+  // 0x32, 0x78, 0xcc, 0x0c, 0x38, 0x60, 0xcc, 0xfc, 0x00,   //2
+  // 0x33, 0x78, 0xcc, 0x0c, 0x38, 0x0c, 0xcc, 0x78, 0x00,   //3
+  // 0x34, 0x1c, 0x3c, 0x6c, 0xcc, 0xfe, 0x0c, 0x1e, 0x00,   //4
+  // 0x35, 0xfc, 0xc0, 0xf8, 0x0c, 0x0c, 0xcc, 0x78, 0x00,   //5
+  // 0x36, 0x38, 0x60, 0xc0, 0xf8, 0xcc, 0xcc, 0x78, 0x00,   //6
+  // 0x37, 0xfc, 0xcc, 0x0c, 0x18, 0x30, 0x30, 0x30, 0x00,   //7
+  // 0x38, 0x78, 0xcc, 0xcc, 0x78, 0xcc, 0xcc, 0x78, 0x00,   //8
+  // 0x39, 0x78, 0xcc, 0xcc, 0x7c, 0x0c, 0x18, 0x70, 0x00,   //9
   0x3a, 0x00, 0x30, 0x30, 0x00, 0x00, 0x30, 0x30, 0x00,   //:
   0x3b, 0x00, 0x30, 0x30, 0x00, 0x00, 0x30, 0x30, 0x60,   //;
   0x3c, 0x18, 0x30, 0x60, 0xc0, 0x60, 0x30, 0x18, 0x00,   //<
@@ -140,27 +159,26 @@ const uint64_t IMAGES_Test[] = {
   0x00180018183c3c18,
 };
 
-const uint64_t IMAGES[] = {
-  // Numbers from 0~9
-  0x003f0c0c0c0c0e0c,
-  // 0x003f33061c30331e,
-  // 0x001e33301c30331e,
-  // 0x0078307f33363c38,
-  // 0x001e3330301f033f,
-  // 0x001e33331f03061c,
-  // 0x000c0c0c1830333f,
-  // 0x001e33331e33331e,
-  // 0x000e18303e33331e,
-  // 0x003e676f7b73633e
+const uint64_t IMAGES[] = {   // Numbers from 0~9
+  // 0x00 3f 0c 0c 0c 0c 0e 0c,  //1
+  // 0x 00 3f 33 06 1c 30 33 1e,  //2
+  // 0x 00 1e 33 30 1c 30 33 1e,  //3
+  // 0x 00 78 30 7f 33 36 3c 38,
+  // 0x 00 1e 33 30 30 1f 03 3f,
+  // 0x 00 1e 33 33 1f 03 06 1c,
+  // 0x 00 0c 0c 0c 18 30 33 3f,
+  // 0x 00 1e 33 33 1e 33 33 1e,
+  // 0x 00 0e 18 30 3e 33 33 1e,
+  // 0x 00 3e676f7b73633e
 };
 
 const uint64_t IMAGES_LETTER[] = {
   // Letters
-  0x0033333f33331e0c,
-  0x003f66663e66663f,
-  0x003c66030303663c,
-  0x001f36666666361f,
-  0x007f46161e16467f,
+  0x0033333f33331e0c,//A
+  0x003f66663e66663f,//B
+  0x003c66030303663c,//C
+  0x001f36666666361f,//D
+  0x007f46161e16467f,//E
   0x000f06161e16467f,
   0x007c66730303663c,
   0x003333333f333333,
@@ -368,32 +386,37 @@ void setup() {
   Serial.begin(115200);
   Serial.println("WS2812B test");
   led.begin();
-
-  // put your setup code here, to run once:
-  char str1[] = "1";
-  int str1_len = strlen(str1);
-  char buffer[buffer_size];
-  unsigned long combined; // empty combined char
-
-  string_read_to_8x8_bytes_out(str1, str1_len, buffer);
   
-  for (int i = 0; i < str1_len; i++)
-  {
-    Serial.print("letter "); Serial.print(str1[i]); Serial.println("");
-    for (int j = 0; j < 8; j++) {
-      char current_byte = buffer[(i * 8) + j];
-      Serial.print("0x "); printf("%02x", current_byte); Serial.println("");
-      //      printf("0x%.2x ", buffer[(i * 8) + j]);
-      combined = (buffer[i * 8] + j, HEX) << 8;
-      Serial.print("combined byte: ");Serial.println(combined);
-      if (j % 8 == 7) {
-        Serial.println("");
-      }
-    }
-  }
+  // displayImage(IMAGES[0], 0, 39, 174, 232);
+  
+  // Serial.println("================================");
+  
+  // put your setup code here, to run once:
+  char inputString[] = "1234567890";
+  int inputLen = strlen(inputString);
+  char buffer[buffer_size];
 
-
-
+  convString2Byte(inputString, inputLen, buffer);
+  setBytesPosition(inputString, inputLen, buffer, 0, 39, 174, 232);
+  // for (int i = 0; i < inputLen; i++)
+  // {
+  //   Serial.print("letter "); Serial.print(inputString[i]); Serial.println("");
+  //   for (int j = 0; j < 8; j++) {
+  //     // get current row message (1 byte), reading order from left to right
+  //     char current_byte = buffer[(i * 8) + j];
+  //     Serial.print("0x "); printf("%02x", current_byte); Serial.println("");
+  //     //      printf("0x%.2x ", buffer[(i * 8) + j]);
+  //     for (int y = 0; y < 8; y++) {
+  //        if (bitRead(current_byte, y) == 1) {
+  //           // mark position on hardware
+  //           // mapLEDXY(y + shift, i, RED, GREEN, BLUE)
+  //        }
+  //     }
+  //     if (j % 8 == 7) {
+  //       Serial.println("");
+  //     }
+  //   }
+  // }
   //Set a specific LED with a certain color
   //  led.setPixelColor(0, 50, 0, 0);
   //  led.setPixelColor(1, 0, 50, 0);
@@ -420,18 +443,14 @@ void setup() {
   //  led.fill(0, 0, 0, 0, 255);
   //  led.show();
   //
-  //  for (int i = 0; i < 32; i = i + 2) {
+  //  for (int i = 0; i < 32; i = i + 2) { // heart shape shifting
   //    symbol3(i, 255, 153, 255);
   //    led.show();
   //    delay(100);
   //    led.fill(0, 0, 0, 0, 255);
   //    led.show();
   //  }
-
-  //  UnicodeChaDisplay(0, 0, 0, 39, 174, 232, HAHA % 2);
 }
-
-int i = 0;
 
 void loop() {
   // Serial.println("===============================");
@@ -459,20 +478,9 @@ void loop() {
 //    i = 0;
 //    //    while (1);
 //  }
-
-
-
-  //#define Spacer 2
-  //  UnicodeChaDisplay(0, 0, 0, 39, 174, 232, HAHA % 2);
-  //  for (int i = 0; i < 33; i++)
-  //  {
-  //    UnicodeChaDisplay(i, 0, 0, 39, 174, 232, HAHA % 2);
-  //    Serial.println("WS2812B UnicodeCha");
-  //    delay(5000);
-  //  }
 }
 
-void string_read_to_8x8_bytes_out(char *str_in, int strlen, char *array_out)
+void convString2Byte(char *str_in, int strlen, char *array_out)
 {
   for (int i = 0; i < strlen; i++)
   {
@@ -489,17 +497,42 @@ void string_read_to_8x8_bytes_out(char *str_in, int strlen, char *array_out)
   }
 }
 
+void setBytesPosition(char *inputString, int inputLen, char *buffer, int shift, byte RED, byte  GREEN, byte BLUE) 
+{
+  for (int i = 0; i < inputLen; i++)
+  {
+    Serial.print("letter "); Serial.print(inputString[i]); Serial.println("");
+    for (int j = 0; j < 8; j++) {
+      // get current row message (1 byte), reading order from left to right
+      char current_byte = buffer[(i * 8) + j];
+      Serial.print("0x "); printf("%02x", current_byte); Serial.println("");
+      //      printf("0x%.2x ", buffer[(i * 8) + j]);
+      for (int y = 0; y < 8; y++) {
+         if (bitRead(current_byte, y) == 1) {
+            // mark position on hardware
+            Serial.print("Y,X : ("); Serial.print(y); Serial.print(","); Serial.print(j); Serial.println(")");
+            mapLEDXY(y + shift, i, RED, GREEN, BLUE);
+         }
+      }
+      if (j % 8 == 7) {
+        Serial.println("");
+      }
+    }
+  }
+}
+
 void displayImage(uint64_t image, int shift, byte RED, byte  GREEN, byte BLUE) {
   for (int i = 0; i < 8; i++) {
     byte row = (image >> i * 8) & 0xFF;
-    //    Serial.print("X axis: "); Serial.println(i);
-    Serial.println(row, BIN);
+    // Serial.print("X axis: "); Serial.println(i);
+    // Serial.println(row, BIN);
+    Serial.print("0x "); printf("%02x", row); Serial.println("");
     for (int y = 0; y < 8; y++) {
       bitRead(row, y);
-      //      Serial.print(bitRead(row, y));
+          //  Serial.print(bitRead(row, y));
       if (bitRead(row, y) == 1) { // find non zero bit, turn on
-        //        Serial.print("Y axis: "); Serial.println(y);
-        Serial.print("Y,X : ("); Serial.print(y); Serial.print(","); Serial.print(i); Serial.println(")");
+        // Serial.print("Y axis: "); Serial.println(y);
+        // Serial.print("Y,X : ("); Serial.print(y); Serial.print(","); Serial.print(i); Serial.println(")");
         mapLEDXY(y + shift, i, RED, GREEN, BLUE);
       }
     }
