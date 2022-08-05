@@ -1,4 +1,5 @@
 //Reference: https://xantorohara.github.io/led-matrix-editor/
+//           https://www.had2know.org/technology/hsv-rgb-conversion-formula-calculator.html
 
 #include "WS2812B.h"
 #include <stdio.h>
