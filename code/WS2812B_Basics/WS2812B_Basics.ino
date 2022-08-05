@@ -24,8 +24,7 @@
 #define Spacer 2
 
 int HAHA = 0;
-
-
+// set No.2
 uint8_t new_ascii[855] = {
   0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,   //
   0x21, 0x18, 0x3c, 0x3c, 0x18, 0x18, 0x00, 0x18, 0x00,   //>!
@@ -43,35 +42,18 @@ uint8_t new_ascii[855] = {
   0x2d, 0x00, 0x00, 0x00, 0xfc, 0x00, 0x00, 0x00, 0x00,   //-
   0x2e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x30, 0x00,   //.
   0x2f, 0x06, 0x0c, 0x18, 0x30, 0x60, 0xc0, 0x80, 0x00,   //>/
-  // 0x30, 0x7c, 0xc6, 0xce, 0xde, 0xf6, 0xe6, 0x7c, 0x00,   //0
-  // 0x003e676f7b73633e
+
   0x40, 0x13, 0x33, 0x33, 0x3e, 0x30, 0x18, 0x0e, 0x00,   //0
-  // 0x003f0c0c0c0c0e0c
   0x31, 0x0c, 0x0e, 0x0c, 0x0c, 0x0c, 0x0c, 0x3f, 0x00,   //1
-  // 0x003f33061c30331e,
   0x32, 0x1e, 0x33, 0x30, 0x1c, 0x06, 0x33, 0x3f, 0x00,   //2
-  // 0x001e33301c30331e,
   0x33, 0x1e, 0x33, 0x30, 0x1c, 0x30, 0x33, 0x1e, 0x00,   //3
-  // 0x0078307f33363c38,
   0x34, 0x38, 0x3c, 0x36, 0x33, 0x7f, 0x30, 0x78, 0x00,   //4
-  // 0x001e3330301f033f,
   0x35, 0x3f, 0x03, 0x1f, 0x30, 0x30, 0x33, 0x1e, 0x00,   //5
-  // 0x001e33331f03061c,
   0x36, 0x1c, 0x06, 0x03, 0x1f, 0x33, 0x33, 0x1e, 0x00,   //6
-  // 0x000c0c0c1830333f,
   0x37, 0x3f, 0x33, 0x30, 0x18, 0x0c, 0x0c, 0x0c, 0x00,   //7
-  // 0x001e33331e33331e,
   0x38, 0x1e, 0x33, 0x33, 0x1e, 0x33, 0x33, 0x13, 0x00,   //8
-  // 0x000e18303e33331e,
   0x39, 0x1e, 0x33, 0x33, 0x3e, 0x30, 0x18, 0x0e, 0x00,   //9
-  // 0x32, 0x78, 0xcc, 0x0c, 0x38, 0x60, 0xcc, 0xfc, 0x00,   //2
-  // 0x33, 0x78, 0xcc, 0x0c, 0x38, 0x0c, 0xcc, 0x78, 0x00,   //3
-  // 0x34, 0x1c, 0x3c, 0x6c, 0xcc, 0xfe, 0x0c, 0x1e, 0x00,   //4
-  // 0x35, 0xfc, 0xc0, 0xf8, 0x0c, 0x0c, 0xcc, 0x78, 0x00,   //5
-  // 0x36, 0x38, 0x60, 0xc0, 0xf8, 0xcc, 0xcc, 0x78, 0x00,   //6
-  // 0x37, 0xfc, 0xcc, 0x0c, 0x18, 0x30, 0x30, 0x30, 0x00,   //7
-  // 0x38, 0x78, 0xcc, 0xcc, 0x78, 0xcc, 0xcc, 0x78, 0x00,   //8
-  // 0x39, 0x78, 0xcc, 0xcc, 0x7c, 0x0c, 0x18, 0x70, 0x00,   //9
+
   0x3a, 0x00, 0x30, 0x30, 0x00, 0x00, 0x30, 0x30, 0x00,   //:
   0x3b, 0x00, 0x30, 0x30, 0x00, 0x00, 0x30, 0x30, 0x60,   //;
   0x3c, 0x18, 0x30, 0x60, 0xc0, 0x60, 0x30, 0x18, 0x00,   //<
@@ -352,17 +334,6 @@ const int IMAGES_SIGNS_LEN = sizeof(IMAGES_SIGNS) / 8;
 const int IMAGES_OTHER_LEN = sizeof(IMAGES_OTHER) / 8;
 const int IMAGES_Test_LEN = sizeof(IMAGES_Test) / 8;
 
-const uint16_t PixelMap[] =
-{
-  0,  15,  16,  31,  32,  47,  48,  63,  64,  79,  80,  95,  96,   111,   112,   127,   128,   143,   144,   159,   160,   175,   176,   191,   192,  207,  208,  223,  224,  239,  240,  255,
-  1,  14,  17,  30,  33,  46,  49,  62,  65,  78,  81,  94,  97,   110,   113,   126,   129,   142,   145,   158,   161,   174,   177,   190,   193,  206,  209,  222,  225,  238,  241,  254,
-  2,  13,  18,  29,  34,  45,  50,  61,  66,  77,  82,  93,  98,   109,   114,   125,   130,   141,   146,   157,   162,   173,   178,   189,   194,  205,  210,  221,  226,  237,  242,  253,
-  3,  12,  19,  28,  35,  44,  51,  60,  67,  76,  83,  92,  99,   108,   115,   124,   131,   140,   147,   156,   163,   172,   179,   188,   195,  204,  211,  220,  227,  236,  243,  252,
-  4,  11,  20,  27,  36,  43,  52,  59,  68,  75,  84,  91,  100,  107,   116,   123,   132,   139,   148,   155,   164,   171,   180,   187,   196,  203,  212,  219,  228,  235,  244,  251,
-  5,  10,  21,  26,  37,  42,  53,  58,  69,  74,  85,  90,  101,  106,   117,   122,   133,   138,   149,   154,   165,   170,   181,   186,   197,  202,  213,  218,  229,  234,  245,  250,
-  6,  9,   22,  25,  38,  41,  54,  57,  70,  73,  86,  89,  102,  105,   118,   121,   134,   137,   150,   153,   166,   169,   182,   185,   198,  201,  214,  217,  230,  233,  246,  249,
-  7,  8,   23,  24,  39,  40,  55,  56,  71,  72,  87,  88,  103,  104,   119,   120,   135,   136,   151,   152,   167,   168,   183,   184,   199,  200,  215,  216,  231,  232,  247,  248,
-};
 //const uint16_t PixelMap1[] =
 //{
 //  0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
@@ -387,17 +358,22 @@ void setup() {
   Serial.println("WS2812B test");
   led.begin();
   
-  // displayImage(IMAGES[0], 0, 39, 174, 232);
+  // displayChar(IMAGES[0], 0, 39, 174, 232);
   
   // Serial.println("================================");
   
   // put your setup code here, to run once:
-  char inputString[] = "1234567890";
+  char inputString[] = "12345";
   int inputLen = strlen(inputString);
   char buffer[buffer_size];
 
   convString2Byte(inputString, inputLen, buffer);
   setBytesPosition(inputString, inputLen, buffer, 0, 39, 174, 232);
+  led.show();
+  delay(1000);
+
+
+
   // for (int i = 0; i < inputLen; i++)
   // {
   //   Serial.print("letter "); Serial.print(inputString[i]); Serial.println("");
@@ -457,19 +433,19 @@ void loop() {
   // Serial.println(i + 1);
   // // put your main code here, to run repeatedly:
   // for (int s = 32; s > 0; s--) {
-  //   displayImage(IMAGES_Test[i], s, 39, 174, 232);
+  //   displayChar(IMAGES_Test[i], s, 39, 174, 232);
   //   led.show();
   //   delay(100);
   //   led.fill(0, 0, 0, 0, 255);
   //   led.show();
   // }
-  //  displayImage(IMAGES[i], 0, 39, 174, 232);
+  //  displayChar(IMAGES[i], 0, 39, 174, 232);
   //  led.show();
-  //  displayImage(IMAGES_LETTER[i], 8, 255, 153, 255);
+  //  displayChar(IMAGES_LETTER[i], 8, 255, 153, 255);
   //  led.show();
-  //  displayImage(IMAGES_SIGNS[i], 16, 255, 128, 0);
+  //  displayChar(IMAGES_SIGNS[i], 16, 255, 128, 0);
   //  led.show();
-  //  displayImage(IMAGES_OTHER[i], 24, 255, 204, 204);
+  //  displayChar(IMAGES_OTHER[i], 24, 255, 204, 204);
   //  led.show();
 //  delay(1000);
 //  led.fill(0, 0, 0, 0, 255);
@@ -497,50 +473,157 @@ void convString2Byte(char *str_in, int strlen, char *array_out)
   }
 }
 
+// --------------------------------------------
+// get current row message (1 byte), reading 
+// order from left to right
+// --------------------------------------------
 void setBytesPosition(char *inputString, int inputLen, char *buffer, int shift, byte RED, byte  GREEN, byte BLUE) 
 {
+  unsigned int maxIndex = 0;
+  unsigned int line_width[8];
+  unsigned int char_width = line_width[maxIndex];
+  
   for (int i = 0; i < inputLen; i++)
   {
     Serial.print("letter "); Serial.print(inputString[i]); Serial.println("");
-    for (int j = 0; j < 8; j++) {
-      // get current row message (1 byte), reading order from left to right
-      char current_byte = buffer[(i * 8) + j];
+    for (int x = 0; x < 8; x++)                         // x axis | vertical
+    {
+      char current_byte = buffer[(i * 8) + x];          // GET ROW VALUE
       Serial.print("0x "); printf("%02x", current_byte); Serial.println("");
-      //      printf("0x%.2x ", buffer[(i * 8) + j]);
-      for (int y = 0; y < 8; y++) {
-         if (bitRead(current_byte, y) == 1) {
+      //      printf("0x%.2x ", buffer[(i * 8) + x]);
+      for (int y = 0; y < 8; y++)                       // y axis | horizontal
+      {
+         if (bitRead(current_byte, y) == 1)             // FIND THE NON-ZERO BIT
+         {
             // mark position on hardware
-            Serial.print("Y,X : ("); Serial.print(y); Serial.print(","); Serial.print(j); Serial.println(")");
-            mapLEDXY(y + shift, i, RED, GREEN, BLUE);
+            Serial.print("Y,X : ("); Serial.print(y); Serial.print(","); Serial.print(x); Serial.println(")");
+            line_width[i] = y;
+            mapLEDXY(y + shift, x, RED, GREEN, BLUE);
          }
+         // Serial.println("------------");
       }
-      if (j % 8 == 7) {
+      if (x % 8 == 7) 
+      {
         Serial.println("");
       }
+      for (int i = 0; i < 8; i++) {
+        maxIndex = 0;
+
+        if (line_width[i] > 8){
+            line_width[i] = 0;    
+        }
+        if (line_width[i] > char_width) {
+            char_width = line_width[i];
+            maxIndex = i;
+        }
+        if (char_width > 8){
+            char_width = 0;    
+        }
+        // Serial.print("Last on bit: ");Serial.print(line_width[i]); Serial.println(" ");
+      }
     }
+    shift += (char_width + Spacer);
+    Serial.print("current shifting bits: "); Serial.print(shift); Serial.println("");
   }
 }
 
-void displayImage(uint64_t image, int shift, byte RED, byte  GREEN, byte BLUE) {
-  for (int i = 0; i < 8; i++) {
-    byte row = (image >> i * 8) & 0xFF;
-    // Serial.print("X axis: "); Serial.println(i);
-    // Serial.println(row, BIN);
-    Serial.print("0x "); printf("%02x", row); Serial.println("");
-    for (int y = 0; y < 8; y++) {
-      bitRead(row, y);
-          //  Serial.print(bitRead(row, y));
-      if (bitRead(row, y) == 1) { // find non zero bit, turn on
-        // Serial.print("Y axis: "); Serial.println(y);
+// --------------------------------------------
+// display information in IMAGES_Test as a 
+// scrolling long sentence
+// --------------------------------------------
+void scrollingImage(uint64_t image, int shift_pattern, byte RED, byte  GREEN, byte BLUE) { 
+    unsigned int char_shift = 0;
+    
+    for(unsigned int i = 0; i < sizeof(image)/8; i++){
+        if (i > 0){ // SHIFT FROM THE SECOND BIT
+            // char_shift = char_shift + getCharShift(IMAGES_Test[i-1]) + 1;
+            char_shift = char_shift + getCharShift(image) + 1;
+        }
+        Serial.println(char_shift);
+        displayChar(IMAGES_Test[i], char_shift + shift_pattern, RED, GREEN, BLUE);
+    }
+}
+
+// --------------------------------------------
+// Return length of image
+// --------------------------------------------
+unsigned int getImageLength(uint64_t image) { 
+    unsigned int char_shift = 0;
+
+    for(unsigned int i = 0; i < sizeof(image)/8; i++){
+        if (i > 0){ // SHIFT FROM THE SECOND BIT
+            char_shift = char_shift + getCharShift(image);
+        }
+    }
+
+    return char_shift;
+}
+
+// --------------------------------------------
+// Get character shift bits
+// --------------------------------------------
+unsigned int getCharShift(uint64_t image){
+  unsigned int maxIndex = 0;
+  unsigned int line_width[8];
+  unsigned int char_width = line_width[maxIndex];
+
+  for (int i = 0; i < 8; i++) {                         // x axis | vertical
+    byte row = (image >> i * 8) & 0xFF;                 // GET ROW VALUE
+    for (int y = 0; y < 8; y++) {                       // y axis | horizontal
+      if (bitRead(row, y) == 1) {                       // FIND THE NON-ZERO BIT
         // Serial.print("Y,X : ("); Serial.print(y); Serial.print(","); Serial.print(i); Serial.println(")");
-        mapLEDXY(y + shift, i, RED, GREEN, BLUE);
+        line_width[i] = y;
+      }
+    }
+    // Serial.println("------------");
+  }
+
+  for (int i = 0; i < 8; i++) {
+    maxIndex = 0;
+
+    if (line_width[i] > 8){
+        line_width[i] = 0;    
+    }
+    if (line_width[i] > char_width) {
+        char_width = line_width[i];
+        maxIndex = i;
+    }
+    if (char_width > 8){
+        char_width = 0;    
+    }
+    // Serial.print("Last on bit: ");Serial.print(line_width[i]); Serial.println(" ");
+  }
+//   Serial.print("Char width: "); Serial.println(char_width + 1);
+//   Serial.println("==============");
+  return (char_width + 1);
+}
+
+// --------------------------------------------
+// Display 8x8 character
+// --------------------------------------------
+void displayChar(uint64_t image, int shift, byte RED, byte  GREEN, byte BLUE) {
+  for (int i = 0; i < 8; i++)                               // x axis | vertical
+  {                                                         
+    byte row = (image >> i * 8) & 0xFF;                     // GET ROW VALUE
+    Serial.print("0x "); printf("%02x", row); Serial.println("");
+    for (int y = 0; y < 8; y++)                             // y axis | horizontal
+    {                                                       
+      if (bitRead(row, y) == 1)                             // FIND THE NON-ZERO BIT
+      {                           
+        // Serial.print("Y,X : ("); Serial.print(y); Serial.print(","); Serial.print(i); Serial.println(")");
+        mapLEDXY(y + shift, i, RED, GREEN, BLUE);          // TURN ON NON-ZERO BIT
       }
     }
     Serial.println("------------");
   }
+  //   Serial.println("==============");
 }
 
-
+// --------------------------------------------
+// map from (x, y) to LED location in strip 
+// zig zag
+// top left LED starting bit
+// --------------------------------------------
 void mapLEDXY(int y, int x, byte RED, byte  GREEN, byte BLUE) {
   int RGBlocation = 0;
 
@@ -554,6 +637,9 @@ void mapLEDXY(int y, int x, byte RED, byte  GREEN, byte BLUE) {
   led.setPixelColor(RGBlocation, RED, GREEN, BLUE);
 
 }
+
+
+// --------------------------------------- test functions below ---------------------------------------
 
 void symbol1() {
   // <=
@@ -678,111 +764,4 @@ void symbol4(int shift, byte RED, byte  GREEN, byte BLUE) {
   mapLEDXY(7 + shift, 3, RED, GREEN, BLUE);
   mapLEDXY(7 + shift, 4, RED, GREEN, BLUE);
   mapLEDXY(7 + shift, 5, RED, GREEN, BLUE);
-}
-
-void UnicodeChaDisplay(int WhichLetter, int CorX , int CorY, int Red, int Green, int Blue, boolean Bitshift) // 起點在左上方(0,0)
-{
-  switch (Bitshift)
-  {
-    case 0:
-      for (byte x = 0; x < ((FontHeight - 1) * 2) - CorY * 2; ++x) // 12 Pixel HIGHT(11+11) & (假設CorY>0)修正超出顯示範圍的"列"(- CorY)
-      {
-        byte data = pgm_read_byte (&Zpix[x + WhichLetter * 32]); // fetch data from program memory
-        Serial.print("0x");
-        Serial.print(Zpix[x], HEX);
-        Serial.print(", ");
-        for (int y = 7; y >= 0; --y) // 由左至右讀取該byte的每個bit(MSB讀取方式)
-        {
-          int EvenNumber = PixelMap[(CorX + CorY * 44) + (7 - y) + 44 * (x / 2)]; // 偶數列
-          int OddNumber = PixelMap[(CorX + CorY * 44) + 8 + (7 - y) + 44 * (x / 2)]; // 奇數列
-
-          if (x % 2 == 0) // 偶數(HEX左半)
-          {
-            Serial.print(EvenNumber); Serial.print(", ");
-            if ((data >> y) & 0x01)
-            {
-              Serial.print("1"); // turn on the LED at location (x,y)
-              led.setPixelColor(EvenNumber, Red, Green, Blue);
-            }
-            else
-            {
-              Serial.print("0"); // turn off the LED at location (x,y)
-              led.setPixelColor(EvenNumber, 0, 0, 0);
-            }
-          }
-          else // 奇數(HEX右半)
-          {
-            Serial.print(OddNumber); Serial.print(", ");
-            if ((data >> y) & 0x01)
-            {
-              Serial.print("1"); // turn on the LED at location (x,y)
-              led.setPixelColor(OddNumber, Red, Green, Blue);
-            }
-            else
-            {
-              Serial.print("0"); // turn off the LED at location (x,y)
-              led.setPixelColor(OddNumber, 0, 0, 0);
-            }
-          }
-        }
-        led.show();
-        Serial.println("");
-      }
-      break;
-
-    case 1:
-      // 左半先做
-      for (int y = 7; y >= 0; --y) // 由左至右讀取該byte的每個bit(MSB讀取方式)
-      {
-        for (int x = 0; x < (FontHeight - 1); ++x) // 偶數先列出
-        {
-          byte data = pgm_read_byte (&Zpix[2 * x + (32 * WhichLetter + 0)]); // fetch data from program memory
-          Serial.print("0x");
-          Serial.print(Zpix[2 * x + (32 * WhichLetter + 0)], HEX);
-          Serial.print(", ");
-
-          if ((data >> y) & 0x01) // 直的一行讀下來，判斷是1還是0
-          {
-            Serial.print("1, ");
-            Serial.println(PixelMap[(CorX + CorY * 44) + (44 * x + 0) + (7 - y)]);
-            led.setPixelColor(PixelMap[(CorX + CorY * 44) + (44 * x + 0) + (7 - y)] , Red, Green, Blue);
-          }
-          else
-          {
-            Serial.print("0, ");
-            Serial.println(PixelMap[(CorX + CorY * 44) + (44 * x + 0) + (7 - y)]);
-            led.setPixelColor(PixelMap[(CorX + CorY * 44) + (44 * x + 0) + (7 - y)] , 0, 0, 0);
-          }
-        }
-        led.show();
-        Serial.println("");
-      }
-      // 再做右半
-      for (int y = 7; y >= 0; --y) // 由左至右讀取該byte的每個bit(MSB讀取方式)
-      {
-        for (int x = 0; x < (FontHeight - 1); ++x) // 偶數先列出
-        {
-          byte data = pgm_read_byte (&Zpix[(2 * x + 1) + (32 * WhichLetter + 0)]); // fetch data from program memory
-          Serial.print("0x");
-          Serial.print(Zpix[(2 * x + 1) + (32 * WhichLetter + 0)], HEX);
-          Serial.print(", ");
-
-          if ((data >> y) & 0x01) // 直的一行讀下來，判斷是1還是0
-          {
-            Serial.print("1, ");
-            Serial.println(PixelMap[(CorX + CorY * 44) + (44 * x + 0) + (7 - y) + 8]);
-            led.setPixelColor(PixelMap[(CorX + CorY * 44) + (44 * x + 0) + (7 - y) + 8] , Red, Green, Blue);
-          }
-          else
-          {
-            Serial.print("0, ");
-            Serial.println(PixelMap[(CorX + CorY * 44) + (44 * x + 0) + (7 - y) + 8]);
-            led.setPixelColor(PixelMap[(CorX + CorY * 44) + (44 * x + 0) + (7 - y) + 8], 0, 0, 0);
-          }
-        }
-        led.show();
-        Serial.println("");
-      }
-      break;
-  }
 }
