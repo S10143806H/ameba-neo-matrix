@@ -7,7 +7,7 @@ Please view detailed project logs from my [Hackaday.io](https://hackaday.io/proj
 
 - [x] Map from LED strip (linear) to 2D-axis in LED Matrix hardware
 - [x] Convert data array (LED pattern) to axises in LED Matrix hardware
-- [ ] Convert input string to ASCII output
+- [x] Convert input string to ASCII output
 - [ ] Getting information from API / Sensors
 
 ## Reference Links
