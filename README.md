@@ -13,3 +13,4 @@ Please view detailed project logs from my [Hackaday.io](https://hackaday.io/proj
 ## Reference Links
 - [LED Matrix Editor](https://xantorohara.github.io/led-matrix-editor)
 - [How to use Excel to Animate LEDs! Arduino + WS2812 LEDs](https://www.youtube.com/watch?v=A_S3LAUQHwU&list=WL&index=78)
+- [NTP Data Time](https://phatiphatt.wordpress.com/esp32-date-and-time-ntp-client/)
