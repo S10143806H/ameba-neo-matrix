@@ -92,6 +92,8 @@
                 "C:\\Users\\zhuqi\\AppData\\Local\\Arduino15\\packages\\realtek\\hardware\\AmebaD\\3.1.3\\cores\\ambd",
                 "C:\\Users\\zhuqi\\AppData\\Local\\Arduino15\\packages\\realtek\\hardware\\AmebaD\\3.1.3\\cores\\ambd",
                 "C:\\Users\\zhuqi\\AppData\\Local\\Arduino15\\packages\\realtek\\hardware\\AmebaD\\3.1.3\\variants\\rtl8720dn_bw16",
+                "C:\\Users\\zhuqi\\AppData\\Local\\Arduino15\\packages\\realtek\\hardware\\AmebaD\\3.1.3\\libraries\\NTPClient",
+                "C:\\Users\\zhuqi\\AppData\\Local\\Arduino15\\packages\\realtek\\hardware\\AmebaD\\3.1.3\\libraries\\WiFi\\src",
                 "C:\\Users\\zhuqi\\AppData\\Local\\Arduino15\\packages\\realtek\\hardware\\AmebaD\\3.1.3\\libraries\\WS2812B",
                 "c:\\users\\zhuqi\\appdata\\local\\arduino15\\packages\\realtek\\tools\\ameba_d_asdk_toolchain\\1.0.1\\arm-none-eabi\\include\\c++\\6.5.0",
                 "c:\\users\\zhuqi\\appdata\\local\\arduino15\\packages\\realtek\\tools\\ameba_d_asdk_toolchain\\1.0.1\\arm-none-eabi\\include\\c++\\6.5.0\\arm-none-eabi",
