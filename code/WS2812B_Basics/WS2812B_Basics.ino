@@ -47,7 +47,7 @@ uint8_t ascii_5[99] = {
   0x37, 0x07, 0x04, 0x04, 0x04, 0x04, 0x00, 0x00, 0x00, // 7
   0x38, 0x07, 0x05, 0x07, 0x05, 0x07, 0x00, 0x00, 0x00, // 8
   0x39, 0x07, 0x05, 0x07, 0x04, 0x07, 0x00, 0x00, 0x00, // 9
-  0x3a, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, //:
+  0x3a, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, // :
 };
 
 uint8_t new_ascii[855] = {
@@ -92,8 +92,8 @@ uint8_t new_ascii[855] = {
   0x46, 0x7f, 0x46, 0x16, 0x1e, 0x16, 0x06, 0x0f, 0x00, // F
   0x47, 0x3c, 0x66, 0x03, 0x03, 0x73, 0x66, 0x3e, 0x00, // G
   0x48, 0x33, 0x33, 0x33, 0x3f, 0x33, 0x33, 0x33, 0x00, // H
-  0x49, 0x1e, 0x0c, 0x0c, 0x0c, 0x0c, 0x0c, 0x1e, 0x00, // I 001e0c0c0c0c0c1e
-  0x4a, 0x1e, 0x0c, 0x0c, 0x0c, 0x33, 0x33, 0x1e, 0x00, // J
+  0x49, 0x1e, 0x0c, 0x0c, 0x0c, 0x0c, 0x0c, 0x1e, 0x00, // I
+  0x4a, 0x1e, 0x0c, 0x0c, 0x0c, 0x33, 0x33, 0x1e, 0x00, // J 001e333330303078
   0x4b, 0xe6, 0x66, 0x6c, 0x1e, 0x6c, 0x66, 0xe6, 0x00, // K
   0x4c, 0xf0, 0x06, 0x06, 0x06, 0x46, 0x66, 0x7f, 0x00, // L
   0x4d, 0x63, 0xee, 0x7f, 0x7f, 0x63, 0x63, 0x63, 0x00, // M
@@ -105,8 +105,8 @@ uint8_t new_ascii[855] = {
   0x53, 0x1e, 0x33, 0x07, 0x70, 0x1c, 0x33, 0x1e, 0x00, // S
   0x54, 0x3f, 0xb4, 0x0c, 0x0c, 0x0c, 0x0c, 0x1e, 0x00, // T
   0x55, 0x33, 0x33, 0x33, 0x33, 0x33, 0x33, 0x3f, 0x00, // U
-  0x56, 0x33, 0x33, 0x33, 0x33, 0x33, 0x1e, 0x0c, 0x00, // V
-  0x57, 0x63, 0x63, 0x63, 0x63, 0x7f, 0xee, 0x63, 0x00, // W
+  0x56, 0x33, 0x33, 0x33, 0x33, 0x33, 0x1e, 0x0c, 0x00, // V 000c1e3333333333
+  0x57, 0x63, 0x63, 0x63, 0x6b, 0x7f, 0x77, 0x63, 0x00, // W
   0x58, 0x63, 0x63, 0x6c, 0x38, 0x38, 0x6c, 0x63, 0x00, // X
   0x59, 0x33, 0x33, 0x33, 0x1e, 0x0c, 0x0c, 0x1e, 0x00, // Y
   0x5a, 0x7f, 0x63, 0x8c, 0x18, 0x32, 0x66, 0x7f, 0x00, // Z 007f664c1831637f
@@ -124,7 +124,7 @@ uint8_t new_ascii[855] = {
   0x66, 0x38, 0x6c, 0x06, 0xf0, 0x06, 0x06, 0xf0, 0x00, // f 000f06060f06361c
   0x67, 0x00, 0x00, 0x6e, 0x33, 0x33, 0x3e, 0x0c, 0xf8, // g 1f303e33336e0000
   0x68, 0x07, 0x06, 0x6c, 0x6e, 0x66, 0x66, 0xe6, 0x00, // h 006766666e360607
-  0x69, 0x0c, 0x00, 0x70, 0x0c, 0x0c, 0x0c, 0x1e, 0x00, // i 001e0c0c0c0e000c
+  0x69, 0x0c, 0x00, 0x0e, 0x0c, 0x0c, 0x0c, 0x1e, 0x00, // i
   0x6a, 0x0c, 0x00, 0x0c, 0x0c, 0x0c, 0x33, 0x33, 0x1e, // j 1e33333030300030
   0x6b, 0x07, 0x06, 0x66, 0x6c, 0x1e, 0x6c, 0xe6, 0x00, // k 0067361e36660607
   0x6c, 0x07, 0x06, 0x06, 0x06, 0x06, 0x06, 0x0f, 0x00, // l
@@ -252,8 +252,8 @@ const uint64_t IMAGES_OTHER[] = {
 const int IMAGES_OTHER_LEN = sizeof(IMAGES_OTHER) / 8;
 const int IMAGES_Test_LEN = sizeof(IMAGES_Test) / 8;
 
-char ssid[] = "TestTeam";
-char pass[] = "Testingonly";
+char ssid[] = "QQZ";
+char pass[] = "11223344";
 
 WS2812B led(SPI_MOSI_PIN, NUM_OF_LEDS);
 WiFiUDP ntpUDP;
@@ -261,28 +261,34 @@ NTPClient timeClient(ntpUDP);
 
 void setup()
 {
-  //  char inputString[] = "Ameba!";
+  char inputString[] = "Wi-Fi";
   //  char inputHour[] = "12";
   //  char inputMin[] = "34";
   //  char inputSec[] = "56";
-  //  char inputCol[] = ":";
 
-  //  int inputLen = strlen(inputString);
-  //  char buffer[buffer_size];
+  int inputLen = strlen(inputString);
+  char buffer[buffer_size];
 
   Serial.begin(115200);
   Serial.println("WS2812B test");
 
+  led.begin();
+  led.clear();
+  // Display static input string in Matrix
+  convString2Byte(inputString, inputLen, buffer, 7);
+  setBytesPosition(inputString, inputLen, buffer, 0, 19, 124, 140);
+  led.show();
+  
   WiFi.begin(ssid, pass);
+  led.clear();
   while (WiFi.status() != WL_CONNECTED) {
+
     delay(500);
     Serial.print(".");
   }
+
   timeClient.begin();
 
-  led.begin();
-  led.clear();
-  led.show();
 
   //  // Display time in HH:MM:SS
   //  convString2Byte(inputHour, strlen(inputHour), buffer, 5);
@@ -318,11 +324,7 @@ void setup()
   //    delay(1000);
   //  }
 
-  // Display static input string in Matrix
-  // convString2Byte(inputString, inputLen, buffer, 7);
-  // setBytesPosition(inputString, inputLen, buffer, 0, 19, 124, 140);
-  // led.show();
-  // delay(1000);
+ 
 
   // Display scrolling input string in Matrix
   // for (int i = 32; i > 0 - 32 - inputLen; i = i - 1) // shift from R to L
@@ -379,8 +381,8 @@ void loop()
   char buffer[buffer_size];
 
   timeClient.update();
-  // +1 3600
-  // +8 28800
+  // +1H 3600
+  // +8H 28800
   timeClient.setTimeOffset(28800);
   Serial.println();
   Serial.println(timeClient.getFormattedTime());
@@ -400,38 +402,46 @@ void loop()
   char cHour[sHour.length()];
   char cMins[sMins.length()];
   char cSecs[sSecs.length()];
+  char inputCol[2] = ":";
 
   for (int i = 0; i < sizeof(cHour); i++) {
     cHour[i] = sHour[i];
-    Serial.print(cHour[i]);
+    DPRINT(cHour[i]);
   }
+
   Serial.println();
   for (int i = 0; i < sizeof(cMins); i++) {
     cMins[i] = sMins[i];
-    Serial.print(cMins[i]);
+    DPRINT(cMins[i]);
   }
   Serial.println();
   for (int i = 0; i < sizeof(cSecs); i++) {
     cSecs[i] = sSecs[i];
-    Serial.print(cSecs[i]);
+    DPRINT(cSecs[i]);
   }
   Serial.println();
 
-  // Display time in HH:MM:SS
+  // // Display time in HH:MM:SS
+  convString2Byte(inputCol, 1, buffer, 5);
+  setBytesPosition(inputCol, 1, buffer, 11, 19, 124, 140);
+  convString2Byte(inputCol, 1, buffer, 5);
+  setBytesPosition(inputCol, 1, buffer, 21, 19, 124, 140);
+  // led.show();
+
   convString2Byte(cHour, 2, buffer, 5);
   setBytesPosition(cHour, 2, buffer, 3, 19, 124, 140);
-  //Serial.print("String lens: ");
-  //Serial.println(strlen(cMins));
+  // //Serial.print("String lens: ");
+  // //Serial.println(strlen(cMins));
   convString2Byte(cMins, 2, buffer, 5);
   setBytesPosition(cMins, 2, buffer, 13, 19, 124, 140);
 
-     convString2Byte(cSecs, 2, buffer, 5);
-   setBytesPosition(cSecs, 2, buffer, 23, 19, 124, 140);
+  convString2Byte(cSecs, 2, buffer, 5);
+  setBytesPosition(cSecs, 2, buffer, 23, 19, 124, 140);
+  
   led.show();
   delay(1000);
-  //  while (1);
-  
-  //  delay(1000);
+  led.clear();
+
   // Serial.println("===============================");
   // Serial.println(i + 1);
   // // put your main code here, to run repeatedly:
@@ -671,6 +681,8 @@ void mapLEDXY(int y, int x, byte RED, byte GREEN, byte BLUE)
 
 // --------------------------------------- test functions below ---------------------------------------
 
+
+// define patterns in hard code
 void symbol1()
 {
   // <=
