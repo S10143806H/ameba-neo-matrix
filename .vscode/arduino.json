@@ -1,7 +1,7 @@
 {
-    "configuration": "EraseFlash=Disable,AutoUploadMode=Enable",
-    "board": "realtek:AmebaD:ameba_rtl8720dn_bw16",
-    "port": "COM19",
-    "sketch": "code\\WS2812B_Basics\\WS2812B_Basics.ino",
+    "configuration": "EraseFlash=Disable",
+    "board": "realtek:AmebaD:ameba_rtl8722dm_mini",
+    "port": "COM7",
+    "sketch": "code\\WS2812_8x16\\WS2812_8x16.ino",
     "output": "../ArduinoOutput"
 }

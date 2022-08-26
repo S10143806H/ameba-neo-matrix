@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <inttypes.h>
 #include <string.h>
+#include "DHT.h"
 
 // #define DEBUG
 #ifdef DEBUG                                      // Macros are usually in all capital letters.
@@ -29,11 +30,14 @@
 #define SPI_MOSI_PIN PA12
 #endif
 
-#define NUM_OF_LEDS 8 * 32
+#define NUM_OF_LEDS 8 * 16 -4
 #define NUM_OF_ROWS 8
-#define NUM_OF_COLS 32
+#define NUM_OF_COLS 16
 #define FontHeight 4
 #define Spacer 1
+
+#define DHTPIN 8
+#define DHTTYPE DHT11   // DHT 11
 
 // set No.2 https://xantorohara.github.io/led-matrix-editor
 uint8_t ascii_5[99] = {
@@ -252,12 +256,8 @@ const uint64_t IMAGES_OTHER[] = {
 const int IMAGES_OTHER_LEN = sizeof(IMAGES_OTHER) / 8;
 const int IMAGES_Test_LEN = sizeof(IMAGES_Test) / 8;
 
-char ssid[] = "QQZ";
-char pass[] = "11223344";
-
 WS2812B led(SPI_MOSI_PIN, NUM_OF_LEDS);
-WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP);
+DHT dht(DHTPIN, DHTTYPE);
 
 // --------------------------------------------
 // convert input string to ASCII
@@ -469,74 +469,27 @@ void mapLEDXY(int y, int x, byte RED, byte GREEN, byte BLUE)
   led.setPixelColor(RGBlocation, RED, GREEN, BLUE);
 }
 
-
 void setup()
 {
-  char inputString[] = "Wi-Fi";
-  //  char inputHour[] = "12";
-  //  char inputMin[] = "34";
-  //  char inputSec[] = "56";
-
+  char inputString[] = "Hi~";
   int inputLen = strlen(inputString);
   char buffer[buffer_size];
 
   Serial.begin(115200);
   Serial.println("WS2812B test");
-
+  // setup display
   led.begin();
   led.clear();
+  // setup dht
+  dht.begin();
   // Display static input string in Matrix
   convString2Byte(inputString, inputLen, buffer, 7);
   setBytesPosition(inputString, inputLen, buffer, 0, 19, 124, 140);
   led.show();
-  
-  WiFi.begin(ssid, pass);
+  delay(2000);
   led.clear();
-  while (WiFi.status() != WL_CONNECTED) {
-
-    delay(500);
-    Serial.print(".");
-  }
-
-  timeClient.begin();
-
-
-  //  // Display time in HH:MM:SS
-  //  convString2Byte(inputHour, strlen(inputHour), buffer, 5);
-  //  setBytesPosition(inputHour, strlen(inputHour), buffer, 3, 19, 124, 140);
-  //
-  //  convString2Byte(inputMin, strlen(inputMin), buffer, 5);
-  //  setBytesPosition(inputMin, strlen(inputMin), buffer, 13, 19, 124, 140);
-  //
-  //  convString2Byte(inputSec, strlen(inputSec), buffer, 5);
-  //  setBytesPosition(inputSec, strlen(inputSec), buffer, 23, 19, 124, 140);
-  //
-  //  led.show();
-  //  delay(1000);
-  //
-  //  while (1)
-  //  {
-  //    convString2Byte(inputCol, strlen(inputCol), buffer, 5);
-  //    setBytesPosition(inputCol, strlen(inputCol), buffer, 11, 19, 124, 140);
-  //
-  //    convString2Byte(inputCol, strlen(inputCol), buffer, 5);
-  //    setBytesPosition(inputCol, strlen(inputCol), buffer, 21, 19, 124, 140);
-  //
-  //    led.show();
-  //    delay(1000);
-  //
-  //    convString2Byte(inputCol, strlen(inputCol), buffer, 5);
-  //    setBytesPosition(inputCol, strlen(inputCol), buffer, 11, 0, 0, 0);
-  //
-  //    convString2Byte(inputCol, strlen(inputCol), buffer, 5);
-  //    setBytesPosition(inputCol, strlen(inputCol), buffer, 21, 0, 0, 0);
-  //
-  //    led.show();
-  //    delay(1000);
-  //  }
-
+  led.show();
  
-
   // Display scrolling input string in Matrix
   // for (int i = 32; i > 0 - 32 - inputLen; i = i - 1) // shift from R to L
   // {
@@ -587,98 +540,30 @@ void setup()
 void loop()
 {
   char inputString[] = "Ameba!";
-
   int inputLen = strlen(inputString);
   char buffer[buffer_size];
 
-  timeClient.update();
-  // +1H 3600
-  // +8H 28800
-  timeClient.setTimeOffset(28800);
-  Serial.println();
-  Serial.println(timeClient.getFormattedTime());
-
-  String sHour(timeClient.getHours());
-  if (timeClient.getHours() < 10) {
-    sHour = "0" + String(timeClient.getHours());
-  }
-  String sMins(timeClient.getMinutes());
-  if (timeClient.getMinutes() < 10) {
-    sMins = "0" + String(timeClient.getMinutes());
-  }
-  String sSecs(timeClient.getSeconds());
-  if (timeClient.getSeconds() < 10) {
-    sSecs = "0" + String(timeClient.getSeconds());
-  }
-  char cHour[sHour.length()];
-  char cMins[sMins.length()];
-  char cSecs[sSecs.length()];
-  char inputCol[2] = ":";
-
-  for (int i = 0; i < sizeof(cHour); i++) {
-    cHour[i] = sHour[i];
-    DPRINT(cHour[i]);
+  int t = dht.readTemperature();
+  if (isnan(t)) {
+    Serial.println(F("Failed to read from DHT sensor!"));
+    return;
   }
 
-  Serial.println();
-  for (int i = 0; i < sizeof(cMins); i++) {
-    cMins[i] = sMins[i];
-    DPRINT(cMins[i]);
+  String sDHTTemp(t);
+  char cDHTTemp[sDHTTemp.length()];
+    
+  for (int i = 0; i < sizeof(cDHTTemp); i++) {
+    cDHTTemp[i] = sDHTTemp[i];
   }
-  Serial.println();
-  for (int i = 0; i < sizeof(cSecs); i++) {
-    cSecs[i] = sSecs[i];
-    DPRINT(cSecs[i]);
-  }
-  Serial.println();
-
-  // // Display time in HH:MM:SS
-  convString2Byte(inputCol, 1, buffer, 5);
-  setBytesPosition(inputCol, 1, buffer, 11, 19, 124, 140);
-  convString2Byte(inputCol, 1, buffer, 5);
-  setBytesPosition(inputCol, 1, buffer, 21, 19, 124, 140);
-  // led.show();
-
-  convString2Byte(cHour, 2, buffer, 5);
-  setBytesPosition(cHour, 2, buffer, 3, 19, 124, 140);
-  // //Serial.print("String lens: ");
-  // //Serial.println(strlen(cMins));
-  convString2Byte(cMins, 2, buffer, 5);
-  setBytesPosition(cMins, 2, buffer, 13, 19, 124, 140);
-
-  convString2Byte(cSecs, 2, buffer, 5);
-  setBytesPosition(cSecs, 2, buffer, 23, 19, 124, 140);
   
-  led.show();
+  convString2Byte(cDHTTemp, 2, buffer, 5);
+  setBytesPosition(cDHTTemp, 2, buffer, 3, 19, 124, 140);
+  
   delay(1000);
+  led.show();
   led.clear();
-
-  // Serial.println("===============================");
-  // Serial.println(i + 1);
-  // // put your main code here, to run repeatedly:
-  // for (int s = 32; s > 0; s--) {
-  //   displayChar(IMAGES_Test[i], s, 39, 174, 232);
-  //   led.show();
-  //   delay(100);
-  //   led.fill(0, 0, 0, 0, 255);
-  //   led.show();
-  // }
-  //  displayChar(IMAGES[i], 0, 39, 174, 232);
-  //  led.show();
-  //  displayChar(IMAGES_LETTER[i], 8, 255, 153, 255);
-  //  led.show();
-  //  displayChar(IMAGES_SIGNS[i], 16, 255, 128, 0);
-  //  led.show();
-  //  displayChar(IMAGES_OTHER[i], 24, 255, 204, 204);
-  //  led.show();
-  //  delay(1000);
-  //  led.fill(0, 0, 0, 0, 255);
-  // led.show();
-  //  if (++i >= IMAGES_OTHER_LEN) {
-  //    i = 0;
-  //    //    while (1);
-  //  }
 }
+
 
 
 // --------------------------------------- test functions below ---------------------------------------
